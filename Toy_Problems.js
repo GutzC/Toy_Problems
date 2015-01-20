@@ -177,7 +177,6 @@ var sum = function(x){
     }
 }
 
-
 /*
  Write a function named replaceOdd that takes in an array of numbers and changes all of the odd numbers to the letter 'O'.
  */
@@ -187,4 +186,15 @@ var replaceOdd = function(arr) {
             arr[i] = 'O';
         }
     }
+}
+
+/*
+    Write a function that returns the factorial of a number.
+ */
+
+var factorial = function(num){
+    if(num === 0) {
+        return 1;
+    }
+    return num * factorial(num - 1);
 }
