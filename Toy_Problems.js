@@ -217,3 +217,39 @@ var simpleSymbols = function(string){
     }
     return true;
 }
+
+//Given an arbitrary input string, return the first non-repeated character in the string. For example:
+//
+//firstNonRepeatedCharacter('ABA'); // =>'B'
+//firstRepeatedCharacter('AABCABD'); // =>'C'
+
+//Loop through string
+//Compare values one at a time against remaining length of string
+//Return value if duplicated
+
+//Create object
+//Create variable for current single value
+//Check if value already on object
+//If it is,
+
+var firstNonRepeatedCharacter = function(string) {
+    var hash = {};
+    var answer = '';
+
+    for (var i = 0; i < string.length; i++) {
+        // If letter not in hash, add it with value 1
+        if (!hash[string[i]]) {
+            hash[string[i]] = 1;
+        }
+        // If letter is in hash, increment value
+        else {
+            hash[string[i]]++;
+        }
+    }
+    for (var i = 0; i < string.length; i++) {
+        if (hash[string[i]] === 1) {
+            return string[i];
+        }
+    }
+    return "No single characters";
+};
