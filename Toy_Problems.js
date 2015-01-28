@@ -271,3 +271,51 @@ var ABCheck = function(str){
    }
    return false;
 }
+
+// Write a function that generates an array of integers of the Fibonacci sequence, up to i = 100. The Fibonacci sequence is defined by: Fn = Fn-1 + Fn-2, which means to find Fn you ad the previous two numbers up. The first two numbers in the sequence are 0 and 1. Write a function to check if a given number is in the Fibonacci sequence, return "yes" if it is, if not return the string "no.
+
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+//var fibonacci = function(max){
+//    var num1 = 0;
+//    var num2 = 1;
+//    var fibArray = [];
+//    fibArray.push(num1);
+//
+//    while((num1 + num2) < max){
+//        fibArray.push(num2)
+//        var temp = num2;
+//        num1 = num2;
+//        num2 = num1 + num2;
+//    }
+//    return fibArray;
+//}
+
+//Find the only item that occurs an even number of times in an array. If there is more than one item that occurs an even number of times, just return one of them. If there are no items that occur an even number of times, return null.
+
+//var onlyEven = evenOccurence([1, 6, 2, 4, 4, 5, 6, 8, 9, 6]);
+//console.log(onlyEven); // 4
+//var onlyEven = evenOccurence([1, 1, 3, 4, 1]);
+//console.log(onlyEven); // null
+
+var onlyEven = function(arr){
+    var temp = {};
+    var tempArr = arr;
+    tempArr.sort();
+    debugger;
+    for(var i = 0; i < tempArr.length; i++){
+        // Check if the next value is different
+        if(tempArr[i-1] != tempArr[i]){
+            if(temp[tempArr[i-1]] % 2 === 0)
+                return tempArr[i-1];
+        }
+        // Add
+        if(temp[tempArr[i]] === undefined){
+            temp[tempArr[i]] = 1;
+        }
+        // If it is already present, increment value by 1
+        else{
+            temp[tempArr[i]]++;
+        }
+    }
+    return null;
+}
