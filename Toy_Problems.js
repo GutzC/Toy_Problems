@@ -319,3 +319,26 @@ var onlyEven = function(arr){
     }
     return null;
 }
+
+// Write a function that accepts a number, n, and returns the nth Finonacci number. Use a recursive solution to this problem; if you finish with time left over, implement an iterative solution
+
+// Iterative solution
+var fibonacci = function(n){
+    var sum = 0;
+    var num1 = 0;
+    var num2 = 1;
+    for(var i = 1; i < n; i++){
+        sum = num1+num2;
+        num1 = num2;
+        num2 = sum;
+    }
+    return sum;
+}
+
+// Recursive solution
+var fibonacci = function(n){
+    if(n <= 2){
+        return 1;
+    }
+    return recursiveFib(n-1) + recursiveFib(n-2);
+}
