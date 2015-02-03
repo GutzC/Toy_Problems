@@ -342,3 +342,15 @@ var fibonacci = function(n){
     }
     return recursiveFib(n-1) + recursiveFib(n-2);
 }
+
+//Create a function that takes in three strings as parameters. The goal is to swap all X characters in the string for Y characters. For example: swapper('some string', 's', 'z') // returns 'zome ztring'
+
+var swapper = function(string, oldChar, newChar){
+    string = string.split('');
+    for(var i = 0; i < string.length; i++){
+        if(string[i] === oldChar){
+            string[i] = newChar;
+        }
+    }
+    return string.join('');
+};
