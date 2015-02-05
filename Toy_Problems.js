@@ -354,3 +354,29 @@ var swapper = function(string, oldChar, newChar){
     }
     return string.join('');
 };
+
+//Write a function that accepts a multi dimensional array and returns a flattened version
+//flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
+//
+// ******Works for single-digit numbers
+// -- Need to have an inner-test of some sort that grabs all numbers between commas and pushes them together
+//    and then increments i by the number of characters read
+var flatten = function(arr){
+    var str = arr.join('[');
+    var newArr = [];
+    for(var i = 0; i < str.length; i++){
+        if(str[i] !== '[' && str[i] !== ',') {
+            newArr.push(+str[i]);
+        }
+    }
+    return newArr;
+}
+
+//if(str[i] !== '[') {
+//    for(var j = 0; str[j] != ']'){
+//        if(str[j] == ','){
+//
+//        }
+//    }
+//    newArr.push(+str[i]);
+//}
