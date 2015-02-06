@@ -361,22 +361,21 @@ var swapper = function(string, oldChar, newChar){
 // ******Works for single-digit numbers
 // -- Need to have an inner-test of some sort that grabs all numbers between commas and pushes them together
 //    and then increments i by the number of characters read
+
 var flatten = function(arr){
-    var str = arr.join('[');
+    var str = arr.join();
     var newArr = [];
     for(var i = 0; i < str.length; i++){
-        if(str[i] !== '[' && str[i] !== ',') {
-            newArr.push(+str[i]);
+        if(str[i] !== ',') {
+            var count = 0;
+            var temp = '';
+            while(str[i + count] !== ',' && (i + count) < str.length) {
+                temp += str[i+count];
+                count++;
+            }
+            newArr.push(+temp);
+            i += count;
         }
     }
     return newArr;
 }
-
-//if(str[i] !== '[') {
-//    for(var j = 0; str[j] != ']'){
-//        if(str[j] == ','){
-//
-//        }
-//    }
-//    newArr.push(+str[i]);
-//}
