@@ -453,51 +453,24 @@ var animals = [
 
 
 //code here
-
 var getClassification = function(arr){
-    newObj = {
-        name: {},
-        kingdom: {},
-        phylum: {},
-        class: {},
-        order: {},
-        family: {},
-        species: {}
-    };
+    newObj = {};
     for(var i = 0; i < arr.length; i++) {
         // Loop through each object in array
         for (var key in arr[i]) {
-            if(arr[i].hasOwnProperty(key)) {
-                debugger;
-                // If the key isn't found
-                if (newObj.key[arr[i].key]) {
-                    newObj.key.arr[i] = 0;
-                } else {
-                    newObj.key[arr[i].key]++;
-                }
+            debugger;
+            if(!newObj[key]){
+                newObj[key] = {};
+            }
+            //debugger;
+            // If the key isn't found
+            item = arr[i][key];
+            if (!newObj[key][item]) {
+                newObj[key][item] = 1;
+            } else {
+                newObj[key][item]++;
             }
         }
     }
     return newObj;
 }
-
-
-// Cahlan's solution
-//var breakDown = function(items) {
-//    var b = {};
-//    for(var i = 0; i<items.length; i++) {
-//        for(var prop in items[i]) {
-//            if(!b[prop]) {
-//                b[prop] = {};
-//            }
-//            if (!b[prop][items[i][prop]]) {
-//                b[prop][items[i][prop]] = 1;
-//            }
-//            else {
-//                b[prop][items[i][prop]]++;
-//            }
-//        }
-//    }
-//    return b;
-//}
-// check if value for each key in object is already in the new object
