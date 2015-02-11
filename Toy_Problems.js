@@ -507,4 +507,20 @@ var sort = function(arr, prop){
         obj[arr[i][prop]].push(arr[i]);
     }
     return obj;
-} 
+}
+
+// Write a function that can only be invoked once that can accept an arbitrary number of arguments
+
+var once = (function(){
+    var arr = arguments;
+    var count = 0;
+    return function(arr){
+        if(count === 0) {
+            console.log("Arguments passed in were: ")
+            for(var i = 0; i < arguments.length; i++){
+                console.log(arguments[i]);
+            }
+            count++;
+        }
+    }
+})()
