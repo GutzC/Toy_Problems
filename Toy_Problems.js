@@ -523,3 +523,18 @@ var once = (function(){
         }
     }
 })()
+
+// Make the following code work:
+/*
+var counter = getCounter();
+counter(); //2
+counter(); //4
+counter(); //6
+
+ */
+var getCounter = function(){
+    var count = 0;
+    return function(){
+        return count += 2;
+    }
+}
