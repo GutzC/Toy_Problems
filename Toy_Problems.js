@@ -538,3 +538,31 @@ var getCounter = function(){
         return count += 2;
     }
 }
+
+//Given an amount of money as a float, format it as a string.
+//formatMoney(2310000.159897); // '2 310 000.16'
+//formatMoney(1600); // '1 600.00'
+
+var formatMoney = function(num){
+    num = [(num > 0) ? Math.floor(num) : Math.ceil(num), num % 1];
+
+    num[0] = num[0].toString().split('');
+    num[1] = num[1].toString().split('');
+    var i = num[0].length - 3;
+    while(i > 0){
+        num[0].splice(i, 0, ' ');
+        i -= 3;
+    }
+
+    num[0] = num[0].join('');
+    num[1] = num[1].join('');
+    num[1] = +num[1];
+    num[1] = num[1].toFixed(2);
+    num[1] = num[1].toString().split('');
+    num[1].splice(0, 1);
+    num[1] = num[1].join('');
+    num = num.join('');
+
+    return num;
+}
+
