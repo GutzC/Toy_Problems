@@ -566,3 +566,35 @@ var formatMoney = function(num){
     return num;
 }
 
+//Make a function that takes a string with parens, brackets, braces
+
+// Loop through string
+// If I find a left bracket, push onto stack
+// If I find a right bracket, check that it matches the top stack item and pop if it does, break if it doesn't
+// Once end of string is reached, check that stack is empty or break
+
+var checkString = function(str){
+    var leftbrackets = ['(', '{', '<', '['];
+    var rightbrackets = [')', '}', '>', ']'];
+    var rightvalues = {
+        ')': '(',
+        '}': '{',
+        '>': '<',
+        ']': '['
+    };
+    var stack = [];
+
+    for(var i = 0; i < str.length; i++){
+        if(leftbrackets.indexOf(str[i]) !== -1){
+            stack.push(str[i]);
+        }
+        if(rightbrackets.indexOf(str[i]) !== -1){
+            if(stack[stack.length-1] === rightvalues[str[i]]){
+                stack.pop();
+            } else {
+                return false;
+            }
+        }
+    }
+    return (stack.length === 0) ? true :  false;
+};
