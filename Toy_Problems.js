@@ -598,3 +598,26 @@ var checkString = function(str){
     }
     return (stack.length === 0) ? true :  false;
 };
+
+/* Create a function that takes a string of letters and returns them as a new string that has been sorted in alphabetical order */
+
+var AlphabetSoup = function(str){
+    //convert str to array
+    //convert to lower-case
+    //double loop through checking value against next value to see if it is higher, rearrange if so
+
+    var newstr = str.toLowerCase().split("");
+    console.log(newstr);
+    for(var i = 1; i < newstr.length; i++){
+        for(var j = 0; j < i; j++){
+            //debugger;
+            if(newstr[j] > newstr[i]){
+                var temp = newstr[i];
+                newstr[i] = newstr[j];
+                newstr[j] = temp;
+            }
+        }
+    }
+    return newstr.join("");
+}
+
