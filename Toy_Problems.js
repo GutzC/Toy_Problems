@@ -621,3 +621,42 @@ var AlphabetSoup = function(str){
     return newstr.join("");
 }
 
+// A Triangle has n number of rows. Each row has one less block than the row below it. Create a function that takes n and calculates the total number of blocks in the triangle.
+
+// Example: triangle with 3 rows:
+// Function returns 6
+
+// Bonus create the triangle with asterisks
+
+// Loop over number decrementing by 1 each time
+
+var triangle = function(int){
+    var total = 0;
+    for (var i = 1; i <= int; i++){
+        total += i;
+    }
+    return total;
+}
+
+var printit = function(int){
+    debugger;
+    var total = int + int - 1;
+    for(var i = 0; i < int; i++){
+        var lpad = '';
+        var padding = int - 1;
+        while(padding){
+            lpad += ' ';
+            padding--;
+        }
+        var temp = i;
+        var middle = '*';
+        while(temp){
+            if(temp > 1){
+                middle += ' *';
+                temp--;
+            }
+        }
+        var line = lpad + middle + lpad;
+        console.log(line);
+    }
+}
