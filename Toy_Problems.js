@@ -660,3 +660,24 @@ var printit = function(int){
         console.log(line);
     }
 }
+
+// FIZZ BUZZ
+// Write a function that console.logs numbrs from 1 to 100.
+// But for multiples of 3, print 'fizz', for multiples of 5 print 'buzz', and for multiples of both 3 and 5, print 'fizz buzz'
+//eg '1, 2, fizz, 4, buzz' etc
+
+var fb = function(){
+    var string = "1";
+    for(var i = 2; i < 100; i++){
+        if(i%15 === 0){
+            string += ", fizzbuzz";
+        } else if(i%3 === 0){
+            string += ", fizz";
+        } else if(i%5 === 0){
+            string += ", buzz";
+        } else {
+            string += ", " + i;
+        }
+    }
+    console.log(string);
+}
