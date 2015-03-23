@@ -681,3 +681,17 @@ var fb = function(){
     }
     console.log(string);
 }
+
+// Palindrome
+// Write a function that takes a string as an argument and determines whether or not the given string is a palindrome.
+// Example: Acrobats stab orca
+
+var palindrome = function(str){
+    var string = str.split(' ').join('').split('').reverse().join('').toLowerCase();
+    str = str.split(' ').join('').toLowerCase();
+    if(string === str) {
+        return true;
+    } else {
+        return false;
+    }
+}
