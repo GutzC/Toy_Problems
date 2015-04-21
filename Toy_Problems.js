@@ -638,25 +638,18 @@ var triangle = function(int){
     return total;
 }
 
-var printit = function(int){
-    debugger;
-    var total = int + int - 1;
-    for(var i = 0; i < int; i++){
-        var lpad = '';
-        var padding = int - 1;
-        while(padding){
-            lpad += ' ';
-            padding--;
+var printit = function(num){
+    for (var i=1; i<=num; i += 2)
+    {
+        var line = "";
+        for (var k=0; k < ((num / 2) - i / 2); k++)
+        {
+            line += " ";
         }
-        var temp = i;
-        var middle = '*';
-        while(temp){
-            if(temp > 1){
-                middle += ' *';
-                temp--;
-            }
+        for (var j=0; j<i; j++)
+        {
+            line += "*";
         }
-        var line = lpad + middle + lpad;
         console.log(line);
     }
 }
@@ -695,3 +688,32 @@ var palindrome = function(str){
         return false;
     }
 }
+
+//balancing brackets
+var balance = function(string){
+    var left = {
+        "{": "}",
+        "[": "]",
+        "(": ")"
+    }
+    //debugger;
+    var stack = [];
+    for(var i = 0; i < string.length; i++){
+        if(left.hasOwnProperty(string[i])){
+            stack.push(string[i]);
+        } else {
+            for(var key in left){
+                if(string[i] === key)
+                    stack.pop();
+                else {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+    // If current character is an open brackt, push it
+    // If current character is a close bracket, check that it matches what is on top of stack.. if not, false
+    // Return true at the end
